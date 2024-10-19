@@ -65,14 +65,16 @@ class ModelViewSet(viewsets.ModelViewSet):
 
 
 
+
 class CarListViewSet(viewsets.ModelViewSet):
     queryset = Car.objects.all()
     serializer_class = CarListSerializer
-    permission_classes = [permissions.IsAuthenticated, CheckOwner]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly, CheckOwner]
     filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
     filterset_class = CarFilter
-    search_fields = ['model']
     ordering_fields = ['price_dollars', 'year_of_release']
+    search_fields = ['car_name']
+
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)

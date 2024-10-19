@@ -133,7 +133,7 @@ class CarDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = Car
         fields = ['id', 'marka', 'model', 'photos',  'year_of_release', 'price_dollars', 'price_som', 'mileage',
-                  'the_body', 'colour', 'engine', 'box_ru', 'box_en', 'box_kg', 'drive_ru', 'drive_en', 'drive_kg', 'rudder_ru', 'rudder_en', 'rudder_kg',
+                  'the_body', 'colour', 'engine', 'box_ru', 'drive_ru', 'rudder_ru',
                   'condition', 'customs', 'exchange', 'availability', 'region_city_of_ale',
                   'accounting', 'other', 'text', 'owner','reviews']
 

@@ -28,6 +28,7 @@ class Model(models.Model):
         return self.model_name
 
 class Car(models.Model):
+    car_name = models.CharField(max_length=35)
     marka = models.ForeignKey(Marka, on_delete=models.CASCADE)
     model = models.ForeignKey(Model, on_delete=models.CASCADE)
     year_of_release = models.DateField(verbose_name='Год выпуска')
@@ -70,7 +71,7 @@ class Car(models.Model):
 
 
     def price_som(self):
-        price_som= self.price_dollars * 85
+        price_som = self.price_dollars * 85
         return price_som
 
     def __str__(self):

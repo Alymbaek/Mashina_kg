@@ -10,3 +10,4 @@ class CarFilter(FilterSet):
             'year_of_release': ['gt', 'lt'],
             'price_dollars': ['gt', 'lt']
         }
+
