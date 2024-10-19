@@ -1,4 +1,5 @@
 from rest_framework import viewsets, generics, status
+from .filters import CarFilter
 from .serializers import *
 from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework.response import Response
@@ -57,6 +58,9 @@ class MarkaViewSet(viewsets.ModelViewSet):
 class CarListViewSet(viewsets.ModelViewSet):
     queryset = Car.objects.all()
     serializer_class = CarListSerializer
+    filterset_class = CarFilter
+    search_fields = ['model_name']
+    ordering_fields = ['year', 'price']
 
 
 class CarDetailViewSet(viewsets.ModelViewSet):

@@ -71,7 +71,7 @@ class Car(models.Model):
     owner = models.ForeignKey(UserProfile, on_delete=models.CASCADE, null=True, blank=True)
 
     def price_som(self):
-        price_som= self.price_dollars * 85
+        price_som = self.price_dollars * 85
         return price_som
 
     def __str__(self):
